@@ -1,0 +1,97 @@
+<!DOCTYPE html> <!-- Declares the document type and version of HTML -->
+<html lang="en"> <!-- Opens the HTML document with English language setting -->
+<head> <!-- Begins the head section containing metadata -->
+    <meta charset="UTF-8"> <!-- Sets character encoding to UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Sets viewport for responsive design -->
+    <title>Donation Management</title> <!-- Sets the page title that appears in browser tab -->
+    <style> 
+        body { /* Styles the entire page body */
+            font-family: Arial, sans-serif; /* Sets font family for text */
+            margin: 0; /* Removes default margin */
+            height: 100vh; /* Full height */
+            display: flex; /* Use Flexbox */
+            flex-direction: column; /* Stack vertically */
+            justify-content: center; /* Center vertically */
+            align-items: center; /* Center horizontally */
+            background-color: rgb(5, 105, 17); /* Sets green background color */
+            text-align: center; /* Centering text */
+        }
+        .error { /* Styles error message class */
+            color: red; /* Sets red text color for errors */
+        }
+    </style> <!-- Closes the internal CSS styling section -->
+</head> <!-- Closes the head section -->
+<body> <!-- Opens the body section containing visible content -->
+    <h1>Welcome to Your Donation Management Page</h1> <!-- Main page heading -->
+    <div id="donation-info"></div> <!-- Container for displaying donation information -->
+    <form id="donation-form"> <!-- Creates donation form with ID for JavaScript -->
+        <h2>Select Donations Needed:</h2> <!-- Form section heading -->
+        <label><input type="checkbox" name="donation" value="Surplus Food"> Surplus Food</label><br> <!-- Checkbox for surplus food -->
+        <label><input type="checkbox" name="donation" value="Water"> Water</label><br> <!-- Checkbox for water -->
+        <label><input type="checkbox" name="donation" value="Fertilizer"> Fertilizer</label><br> <!-- Checkbox for fertilizer -->
+        <label><input type="checkbox" name="donation" value="Seeds"> Seeds</label><br> <!-- Checkbox for seeds -->
+        <label><input type="checkbox" name="donation" value="Tools"> Tools</label><br> <!-- Checkbox for tools -->
+        <button type="submit">Submit</button> <!-- Submit button for the form -->
+    </form> <!-- Closes the donation form -->
+    <div id="message" class="error"></div> <!-- Container for displaying messages/errors -->
+   
+    <button onclick="location.href='index.html'" style="margin-top: 20px;">Return Home</button> <!-- Button to navigate back to home page -->
+
+    <script> <!-- Opens JavaScript section -->
+        // Simulated data
+         function getRandomDonations() { // Function to generate random donation data
+            const donationTypes = ['Surplus Food', 'Water', 'Fertilizer', 'Seeds', 'Tools']; // Array of possible donation types
+            const totalDonations = Math.floor(Math.random() * 10) + 1; // Random total donations between 1 and 10
+            const donationsReceived = []; // Empty array to store received donations
+            for (let i = 0; i < totalDonations; i++) { // Loop to generate random donations
+                const randomIndex = Math.floor(Math.random() * donationTypes.length); // Get random index from donation types
+                const donation = donationTypes[randomIndex]; // Get random donation type
+                if (!donationsReceived.includes(donation)) { // Check if donation type is not already in array
+                    donationsReceived.push(donation); // Add donation type to array
+                }
+            }
+            return { totalDonations, donationsReceived }; // Return object with donation data
+        }
+
+        // Simulated data
+        const userDonations = getRandomDonations(); // Call function to get random donation data
+
+         function getNextFriday() { // Function to calculate next Friday's date
+            const today = new Date(); // Get current date
+            const nextFriday = new Date(today); // Create new date object
+            nextFriday.setDate(today.getDate() + (5 - today.getDay() + 7) % 7 || 7); // Calculate next Friday
+            return nextFriday.toDateString(); // Return formatted date string
+        }
+
+        // Donation information
+        function displayDonationInfo() { // Function to display donation information on page
+             const donationInfoDiv = document.getElementById('donation-info'); // Get donation info div element
+             const nextFriday = getNextFriday(); // Call the function to get the next Friday
+             donationInfoDiv.innerHTML = `You have received ${userDonations.totalDonations} donations: ${userDonations.donationsReceived.join(', ')}. Please fetch at the nearest post office on ${nextFriday}.`; // Display donation info with next Friday date
+        }
+            
+
+        // Form submission
+        document.getElementById('donation-form').addEventListener('submit', function(event) { // Add submit event listener to donation form
+            event.preventDefault(); // Prevent the default form submission behavior
+            const selectedDonations = Array.from(document.querySelectorAll('input[name="donation"]:checked')).map(el => el.value); // Get array of checked donation types
+            const messageDiv = document.getElementById('message'); // Get message div element
+
+            try { // Start try block for error handling
+                if (selectedDonations.length === 0) { // Check if no donations are selected
+                    throw new Error("Please select at least one donation type."); // Throw error if no selections
+                }
+                messageDiv.classList.remove('error'); // Remove error class if validation passes
+                const nextFriday = getNextFriday(); // Get next Friday date
+                messageDiv.innerHTML = `Thank you! An SMS will be sent when your requested donations (${selectedDonations.join(', ')}) are available at the nearest post office.`; // Display success message
+            } catch (error) { // Catch any thrown errors
+                messageDiv.classList.add('error'); // Add error class for styling
+                messageDiv.innerHTML = error.message; // Display error message
+            }
+        });
+
+        // Display of donation information
+        displayDonationInfo(); // Call function to display donation info when page loads
+    </script> <!-- Closes JavaScript section -->
+</body> <!-- Closes the body section -->
+</html> <!-- Closes the HTML document -->

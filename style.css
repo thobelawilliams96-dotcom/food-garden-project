@@ -1,0 +1,180 @@
+* { /* Universal selector applies to all elements */
+    margin: 0; /* Removes default margin from all elements */
+    padding: 0; /* Removes default padding from all elements */
+    box-sizing: border-box; /* Includes padding and border in element's total width and height */
+}
+
+.main { /* Styles the main container class */
+    width: 100vw; /* Sets width to 100% of viewport width */
+    background-color: #08780c; /* Sets green background color */
+    min-height: 100vh; /* Sets minimum height to 100% of viewport height */
+    position: relative; /* Enables absolute positioning for child elements */
+}
+
+.navbar { /* Styles the navigation bar */
+    display: flex; /* Uses flexbox for layout */
+    justify-content: space-between; /* Spaces items evenly with first/left at start and last/right at end */
+    align-items: center; /* Centers items vertically */
+    height: 70px; /* Sets fixed height for navbar */
+    padding: 0 20px; /* Adds horizontal padding only */
+}
+
+.icon { /* Styles the icon/logo container */
+    width: 200px; /* Sets fixed width */
+    height: 70px; /* Sets fixed height */
+    justify-content: center; /* Centers content horizontally */
+    display: flex; /* Uses flexbox for layout */
+    align-items: center; /* Centers content vertically */
+}
+
+.logo { /* Styles the logo text */
+   font-size: 40px; /* Sets large font size */
+    font-family: 'Times New Roman'; /* Sets font family */
+    color: white; /* Sets white text color */
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically if needed */
+    height: 100vh; /* Sets height to full viewport height */
+    margin-left: 85px; /* Adds left margin for positioning */
+}
+
+.menu { /* Styles the menu container */
+    flex-grow: 1; /* Allows menu to grow and fill available space */
+    display: flex; /* Uses flexbox for layout */
+    justify-content: center; /* Centers menu items horizontally */
+}
+
+.ul { /* Styles the unordered list */
+    display: flex; /* Displays list items in a row */
+    list-style: none; /* Removes default bullet points */
+    gap: 15px; /* Adds space between list items */
+    padding: 10px 20px; /* Adds padding inside the list */
+}
+
+.ul li { /* Styles each list item */
+    margin: 0; /* Removed margin for better alignment */
+}
+
+.ul li a { /* Styles the anchor links in list items */
+    display: block; /* Makes links block-level elements */
+    text-decoration: none; /* Changed to none for a cleaner look */
+    color: white; /* Changed for better contrast */
+    font-family: 'Times New Roman'; /* Sets font family */
+    font-weight: bold; /* Makes text bold */
+    padding: 8px 12px; /* Adds padding inside links */
+    transition: 0.4s ease-in-out; /* Adds smooth transition effect */
+}
+
+.ul li a:hover { /* Styles links on hover state */
+    background-color: antiquewhite; /* Changes background color on hover */
+    color: #045c0b; /* Changes text color on hover */
+}
+
+.center-wrapper { /* Styles the center content wrapper */
+    position: absolute; /* Positions element absolutely within relative parent */
+    top: 50%; /* Positions from top at 50% */
+    left: 50%; /* Positions from left at 50% */
+    transform: translate(-50%, -50%); /* Centers element perfectly */
+    text-align: center; /* Centers text horizontally */
+}
+
+.info { /* Styles the info content area */
+    background: transparent; /* Makes background transparent */
+    padding: 15px; /* Adds padding inside info area */
+    max-width: 800px; /* Sets maximum width for info area */
+}
+
+.info h1 { /* Styles h1 headings inside info area */
+    font-size: 45px; /* Sets large font size */
+    color: antiquewhite; /* Sets text color */
+    font-family: 'Franklin Gothic Medium'; /* Sets font family */
+}
+
+.para { /* Styles paragraphs with para class */
+    font-size: 35px; /* Sets large font size */
+    line-height: 30px; /* Sets line height for text */
+    color: antiquewhite; /* Sets text color */
+    font-family: 'Franklin Gothic Medium'; /* Sets font family */
+}
+
+  h1 { /* Styles all h1 headings */
+    text-align: center; /* Centers text horizontally */
+    font-size: 2.5em; /* Sets font size using em units */
+    margin-top: 20px; /* Adds top margin */
+    color: #034906; /* Sets dark green text color */
+  }
+
+  h2{ /* Styles all h2 headings */
+    text-align: center; /* Centers text horizontally */
+    font-size: 30px; /* Sets font size */
+    margin-top: 10px; /* Adds top margin */
+    color: #053007; /* Sets dark green text color */
+  }
+
+  p{ /* Styles all paragraphs */
+    color: white; /* Sets white text color */
+    font-family: "Times New Roman", Times, serif; /* Sets font family with fallbacks */
+    text-align: center; /* Centers text horizontally */
+    margin-bottom: 10px; /* Adds bottom margin */
+  }
+
+
+  button { /* Styles all buttons */
+  background-color: #0445067c; /* Sets semi-transparent green background */
+  color: rgb(245, 248, 245); /* Sets light green text color */
+  border: none; /* Removes default border */
+  border-radius: 5px; /* Rounds button corners */
+  transition: background-color 0.3s; /* Adds smooth color transition */
+  z-index: 1; /* Sets stacking order */
+}
+
+button:hover { /* Styles buttons on hover state */
+  background-color: #05730b84; /* Changes to slightly different green on hover */
+}
+
+
+.form-container { /* Styles form container class */
+  max-width: 500px; /* Sets maximum width for forms */
+  background: rgb(8, 130, 3); /* Sets green background color */
+  padding: 30px; /* Adds padding inside form container */
+  border-radius: 8px; /* Rounds container corners */
+  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Adds subtle shadow effect */
+  margin: 0; /* Removes default margin */
+}
+
+
+.form-container h2 { /* Styles h2 headings inside form containers */
+  text-align: center; /* Centers text horizontally */
+  font-size: 20px; /* Sets font size */
+  margin-bottom: 20px; /* Adds bottom margin */
+}
+
+input, textarea, button { /* Styles all input, textarea, and button elements */
+  width: 100%; /* Sets full width of parent container */
+  padding: 10px; /* Adds internal padding */
+  margin-top: 10px; /* Adds top margin */
+  border-radius: 5px; /* Rounds element corners */
+  border: 1px solid #ccc; /* Adds light gray border */
+  font-size: 16px; /* Sets font size */
+}
+
+button { /* Styles all buttons (repeated for specificity) */
+  background-color: #0c6f0f; /* Sets green background color */
+  color: white; /* Sets white text color */
+  border: none; /* Removes default border */
+  cursor: pointer; /* Changes cursor to pointer on hover */
+}
+
+button:hover { /* Styles buttons on hover state (repeated for specificity) */
+  background-color: #45a049; /* Changes to lighter green on hover */
+}
+
+#thankYouMessage { /* Styles element with thankYouMessage ID */
+  display: none; /* Hides element by default */
+  margin-top: 20px; /* Adds top margin when displayed */
+  color: rgb(4, 67, 4); /* Sets dark green text color */
+  font-weight: bold; /* Makes text bold */
+  text-align: center; /* Centers text horizontally */
+}

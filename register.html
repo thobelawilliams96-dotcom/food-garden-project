@@ -1,0 +1,71 @@
+<!DOCTYPE html> <!-- Declares the document type and version of HTML -->
+<html> <!-- Opens the HTML document -->
+<head> <!-- Begins the head section containing metadata -->
+  <title>Community Registration</title> <!-- Sets the page title that appears in browser tab -->
+  <style> 
+    body { font-family: Arial, sans-serif; padding: 20px; max-width: 600px; margin: auto; background-color: rgb(8, 128, 6); } /* Styles body with font, padding, max width, centering, and green background */
+    .form-group { margin-bottom: 15px; } /* Adds bottom margin to form groups for spacing */
+    label { display: block; margin-bottom: 5px; } /* Makes labels block elements with bottom margin */
+    input { width: 100%; padding: 8px; box-sizing: border-box; } /* Styles inputs to full width with padding and border-box sizing */
+    #regNumber { margin-top: 20px; font-weight: bold; color: rgb(223, 235, 223); } /* Styles registration number display with top margin, bold text, and light green color */
+  </style> <!-- Closes the internal CSS styling section -->
+</head> <!-- Closes the head section -->
+<body> <!-- Opens the body section containing visible content -->
+
+  <h2>Community Registration Form</h2> <!-- Main form heading -->
+  <form id="registrationForm"> <!-- Creates registration form with ID for JavaScript -->
+    <div class="form-group"> <!-- Form group container for name field -->
+      <label for="name">Full Name:</label> <!-- Label for name input -->
+      <input type="text" id="name" required> <!-- Text input for full name with required validation -->
+    </div> <!-- Closes form group -->
+    <div class="form-group"> <!-- Form group container for district field -->
+      <label for="district">District Ward Number:</label> <!-- Label for district input -->
+      <input type="text" id="district" required> <!-- Text input for district ward number with required validation -->
+    </div> <!-- Closes form group -->
+    <div class="form-group"> <!-- Form group container for city field -->
+      <label for="city">City:</label> <!-- Label for city input -->
+      <input type="text" id="city" required> <!-- Text input for city with required validation -->
+    </div> <!-- Closes form group -->
+    <div class="form-group"> <!-- Form group container for province field -->
+      <label for="province">Province:</label> <!-- Label for province input -->
+      <input type="text" id="province" required> <!-- Text input for province with required validation -->
+    </div> <!-- Closes form group -->
+    <div class="form-group"> <!-- Form group container for email field -->
+      <label for="email">Email Address:</label> <!-- Label for email input -->
+      <input type="email" id="email" required> <!-- Email input with email validation and required attribute -->
+    </div> <!-- Closes form group -->
+    <div class="form-group"> <!-- Form group container for phone field -->
+      <label for="phone">Phone Number:</label> <!-- Label for phone input -->
+      <input type="tel" id="phone" required> <!-- Telephone input with required validation -->
+    </div> <!-- Closes form group -->
+    <button type="submit">Submit</button> <!-- Submit button for the form -->
+  </form> <!-- Closes the registration form -->
+
+  <div id="regNumber"></div> <!-- Empty div to display generated registration number -->
+
+   <button onclick="window.location.href='index.html';">Return Home</button> <!-- Button to navigate back to home page -->
+
+  <script> <!-- Opens JavaScript section -->
+    document.getElementById("registrationForm").addEventListener("submit", function(e) { // Adds submit event listener to registration form
+      e.preventDefault(); // Prevents the default form submission behavior
+
+      // Collect data
+      const name = document.getElementById("name").value; // Gets value from name input field
+      const district = document.getElementById("district").value; // Gets value from district input field
+      const city = document.getElementById("city").value; // Gets value from city input field
+      const province = document.getElementById("province").value; // Gets value from province input field
+      const email = document.getElementById("email").value; // Gets value from email input field
+      const phone = document.getElementById("phone").value; // Gets value from phone input field
+
+      // Generate registration number REG-YYYYMMDD-XXXX
+      const datePart = new Date().toISOString().slice(0,10).replace(/-/g, ""); // Creates date string in YYYYMMDD format
+      const randomPart = Math.floor(1000 + Math.random() * 9000); // Generates random 4-digit number
+      const regNum = `REG-${datePart}-${randomPart}`; // Combines parts to create registration number
+
+      // Display registration number
+      document.getElementById("regNumber").textContent = `Thank you, ${name}. Your registration number is: ${regNum}`; // Shows success message with registration number
+    });
+  </script> <!-- Closes JavaScript section -->
+
+</body> <!-- Closes the body section -->
+</html> <!-- Closes the HTML document -->

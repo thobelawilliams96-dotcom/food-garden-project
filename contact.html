@@ -1,0 +1,76 @@
+<!DOCTYPE html> <!-- Declares the document type and version of HTML -->
+<html lang="en"> <!-- Opens the HTML document with English language setting -->
+<head> <!-- Begins the head section containing metadata -->
+    <meta charset="UTF-8"> <!-- Sets character encoding to UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Sets viewport for responsive design -->
+    <title>Contact Us</title> <!-- Sets the page title that appears in browser tab -->
+    <style> 
+        body { /* Styles the entire page body */
+            background-image: url('1.jpg'); /* Sets background image */
+            background-size: cover; /* Makes background image cover entire element */
+             background-position: center; /* Centers the background image */
+             background-repeat: no-repeat; /* Prevents background image from repeating */
+             height: 100vh; /* Sets height to full viewport height */
+             margin: 0; /* Removes default margin */
+             color: rgb(255, 255, 255); /* Sets white text color */
+             font-family: Arial, sans-serif; /* Sets font family for text */
+             text-align: center; /* Centers text horizontally */
+             display: flex; /* Uses flexbox for layout */
+             flex-direction: column; /* Stacks children vertically */
+             justify-content: center; /* Centers content vertically */
+             align-items: center; /* Centers content horizontally */
+        }
+        h1 { /* Styles h1 headings */
+            font-size: 3.5em; /* Sets large font size */
+        }
+        .contact-info { /* Styles the contact info container */
+            margin: 30px 0; /* Adds vertical margin */
+            text-align: center; /* Centers text horizontally */
+            font-size: 1.5em; /* Sets font size */
+        }
+
+         .contact-info p { /* Styles paragraphs within contact info */
+        font-weight: bold; /* Makes text bold */
+        font-size: 1.5em; /* Sets font size */
+    }
+
+        a { /* Styles all anchor links */
+            color: rgb(255, 255, 255); /* Sets white text color */
+            text-decoration: none; /* Removes underline from links */
+            font-weight: bold; /* Makes link text bold */
+        }
+
+        .home-button { /* Styles the home button container */
+            margin-top: 10px; /* Adds top margin */
+}
+
+        .home-button a { /* Styles the anchor link within home button */
+           background-color: rgb(21, 97, 6); /* Sets green background color */
+           color: white; /* Sets white text color */
+           padding: 10px 20px; /* Adds internal padding */
+           border-radius: 5px; /* Rounds button corners */
+           text-decoration: none; /* Removes underline from link */
+           font-size: 1.2em; /* Sets font size */
+}
+
+    </style> <!-- Closes the internal CSS styling section -->
+</head> <!-- Closes the head section -->
+<body> <!-- Opens the body section containing visible content -->
+    <h1>Contact Us</h1> <!-- Main page heading -->
+    <div class="contact-info"> <!-- Container for contact information -->
+        <p>Phone Number: <a href="tel:0734569231">0734569231</a></p> <!-- Phone number with clickable link -->
+        <p>Email for User Help: <a href="mailto:support@technofoods.com">support@technofoods.com</a></p> <!-- Support email with clickable link -->
+        <p>Email for General Inquiries: <a href="mailto:info@technofoods.com">info@technofoods.com</a></p> <!-- General email with clickable link -->
+        <p>Follow us on:</p> <!-- Social media section heading -->
+        <p> <!-- Social media links paragraph -->
+            <a href="https://www.facebook.com/TechnoFoods">Facebook</a> | <!-- Facebook link -->
+            <a href="https://www.instagram.com/TechnoFoods">Instagram</a> | <!-- Instagram link -->
+            <a href="https://www.tiktok.com/@TechnoFoods">TikTok</a> <!-- TikTok link -->
+        </p> <!-- Closes social media links paragraph -->
+    </div> <!-- Closes contact info container -->
+</body> <!-- Closes the body section -->
+<div class="home-button"> <!-- Home button container (outside body - should be moved inside body) -->
+    <a href="index.html">Home</a> <!-- Link to home page -->
+</div> <!-- Closes home button container -->
+
+</html> <!-- Closes the HTML document -->

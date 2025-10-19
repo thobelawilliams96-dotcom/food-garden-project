@@ -1,0 +1,60 @@
+<!DOCTYPE html> <!-- Declares the document type and version of HTML -->
+<html lang="en"> <!-- Opens the HTML document with English language setting -->
+<head> <!-- Begins the head section containing metadata -->
+  <title>Login - TechnoFoods</title> <!-- Sets the page title that appears in browser tab -->
+  <style> 
+    body { /* Styles the entire page body */
+      background-color: #158507; /* Sets background color to green */
+      font-family: Arial, sans-serif; /* Defines font family for text */
+      display: flex; /* Uses flexbox for layout */
+      justify-content: center; /* Centers content horizontally */
+      align-items: center; /* Centers content vertically */
+      height: 100vh; /* Sets body height to full viewport height */
+    }
+    .login-box { /* Styles the login box container */
+      background-color: white; /* Sets white background for login box */
+      padding: 30px; /* Adds internal spacing inside login box */
+      border-radius: 8px; /* Rounds the corners of login box */
+      box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Adds subtle shadow effect */
+      width: 300px; /* Sets fixed width for login box */
+    }
+    .login-box h2 { /* Styles the heading inside login box */
+      text-align: center; /* Centers the heading text */
+      margin-bottom: 20px; /* Adds space below heading */
+    }
+    .login-box input { /* Styles all input fields in login box */
+      width: 100%; /* Makes inputs fill available width */
+      padding: 10px; /* Adds internal spacing inside inputs */
+      margin: 10px 0; /* Adds vertical spacing around inputs */
+      box-sizing: border-box; /* Includes padding in width calculation */
+    }
+    .login-box button { /* Styles the login button */
+      width: 100%; /* Makes button fill available width */
+      padding: 10px; /* Adds internal spacing inside button */
+      background-color: green; /* Sets green background color */
+      color: white; /* Sets white text color */
+      border: none; /* Removes default button border */
+      cursor: pointer; /* Changes cursor to pointer on hover */
+    }
+  </style> <!-- Closes the internal CSS styling section -->
+</head> <!-- Closes the head section -->
+<body> <!-- Opens the body section containing visible content -->
+
+  <div class="login-box"> <!-- Creates the main login container div -->
+    <h2>Login</h2> <!-- Login form heading -->
+    <form id="loginForm"> <!-- Creates login form with ID for JavaScript -->
+      <input type="email" placeholder="Registered Email" required> <!-- Email input field -->
+      <input type="text" placeholder="Registration Number" required> <!-- Registration number input field -->
+      <button type="submit">Login</button> <!-- Submit button for the form -->
+    </form> <!-- Closes the login form -->
+  </div> <!-- Closes the login box container -->
+
+  <script> <!-- Opens JavaScript section -->
+    document.getElementById('loginForm').addEventListener('submit', function(event) { // Adds submit event listener to login form
+      event.preventDefault(); // Prevents the default form submission behavior
+      window.location.href = 'login.html'; // Redirects user to login.html page
+    });
+  </script> <!-- Closes JavaScript section -->
+
+</body> <!-- Closes the body section -->
+</html> <!-- Closes the HTML document -->

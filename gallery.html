@@ -1,0 +1,120 @@
+<!DOCTYPE html> <!-- Declares the document type and version of HTML -->
+<html lang="en"> <!-- Opens the HTML document with English language setting -->
+<head> <!-- Begins the head section containing metadata -->
+    <meta charset="UTF-8"> <!-- Sets character encoding to UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Sets viewport for responsive design -->
+    <title>Gallery</title> <!-- Sets the page title that appears in browser tab -->
+    <style> 
+        body { /* Styles the entire page body */
+            font-family: Arial, sans-serif; /* Sets font family for text */
+            display: flex; /* Uses flexbox for layout */
+            justify-content: center; /* Centers content horizontally */
+            align-items: center; /* Centers content vertically */
+            height: 100vh; /* Sets height to full viewport height */
+            background-color: #08780c; /* Sets green background color */
+        }
+        .gallery { /* Styles the gallery container */
+            position: relative; /* Enables absolute positioning for child elements */
+            width: 80%; /* Sets width to 80% of parent */
+            max-width: 600px; /* Sets maximum width for larger screens */
+            overflow: hidden; /* Hides overflow content */
+            border: 2px solid #ccc; /* Adds light gray border */
+            border-radius: 10px; /* Rounds gallery corners */
+        }
+        .images { /* Styles the images container */
+            display: flex; /* Uses flexbox for horizontal layout */
+            transition: transform 0.5s ease; /* Adds smooth slide transition */
+        }
+        .images img { /* Styles all images within the images container */
+            width: 100%; /* Sets images to full container width */
+            border-radius: 10px; /* Rounds image corners */
+        }
+        .arrow { /* Styles the navigation arrows */
+            position: absolute; /* Positions arrows absolutely within gallery */
+            top: 50%; /* Positions from top at 50% */
+            transform: translateY(-50%); /* Centers arrows vertically */
+            background-color: rgba(255, 255, 255, 0.7); /* Sets semi-transparent white background */
+            border: none; /* Removes default border */
+            cursor: pointer; /* Changes cursor to pointer on hover */
+            padding: 10px; /* Adds internal padding */
+            border-radius: 50%; /* Makes arrows circular */
+        }
+        .left { /* Styles the left arrow specifically */
+            left: 10px; /* Positions from left edge */
+        }
+        .right { /* Styles the right arrow specifically */
+            right: 10px; /* Positions from right edge */
+        }
+    </style> <!-- Closes the internal CSS styling section -->
+</head> <!-- Closes the head section -->
+<body> <!-- Opens the body section containing visible content -->
+
+<div class="gallery"> <!-- Main gallery container -->
+    <button class="arrow left" onclick="moveSlide(-1)">&#10094;</button> <!-- Left navigation arrow -->
+    <div class="images" id="images"> <!-- Container for all gallery images -->
+        <script> <!-- Opens JavaScript section for dynamic image generation -->
+            // Array of image data for looping
+            const imageData = [
+                {src: "1.jpg", alt: "Image 1"},
+                {src: "2.jpg", alt: "Image 2"},
+                {src: "3.jpg", alt: "Image 3"},
+                {src: "4.jpg", alt: "Image 4"},
+                {src: "5.jpg", alt: "Image 5"},
+                {src: "6.jpg", alt: "Image 6"},
+                {src: "7.jpg", alt: "Image 7"},
+                {src: "8.jpg", alt: "Image 8"},
+                {src: "9.jpg", alt: "Image 9"},
+                {src: "10.jpg", alt: "Image 10"},
+                {src: "11.jpg", alt: "Image 11"},
+                {src: "12.jpg", alt: "Image 12"},
+                {src: "13.jpg", alt: "Image 13"},
+                {src: "14.jpg", alt: "Image 14"},
+                {src: "15.jpg", alt: "Image 15"},
+                {src: "16.jpg", alt: "Image 16"},
+                {src: "17.jpg", alt: "Image 17"}
+            ];
+            
+            // Loop through image data and generate image elements
+            imageData.forEach(img => {
+                document.write(`<img src="${img.src}" alt="${img.alt}">`);
+            });
+        </script> <!-- Closes JavaScript section -->
+    </div> <!-- Closes images container -->
+    <button class="arrow right" onclick="moveSlide(1)">&#10095;</button> <!-- Right navigation arrow -->
+</div> <!-- Closes gallery container -->
+
+<script> <!-- Opens JavaScript section for gallery functionality -->
+    let currentIndex = 0; // Variable to track current image index
+    const images = document.getElementById('images'); // Get reference to images container
+    const totalImages = images.children.length; // Get total number of images
+
+    function moveSlide(direction) { // Function to navigate between images
+        // Use switch statement to handle different navigation cases
+        switch(direction) {
+            case -1: // Case for moving left/previous
+                currentIndex--; // Decrement current index
+                if (currentIndex < 0) { // Check if at first image
+                    currentIndex = totalImages - 1; // Loop to last image
+                }
+                break;
+            case 1: // Case for moving right/next
+                currentIndex++; // Increment current index
+                if (currentIndex >= totalImages) { // Check if at last image
+                    currentIndex = 0; // Loop to first image
+                }
+                break;
+            default: // Default case for invalid direction
+                console.log("Invalid navigation direction"); // Log error for invalid direction
+                return; // Exit function early
+        }
+        
+        // Calculate transform value based on current index
+        const transformValue = -currentIndex * 100; // Calculate percentage for slide position
+        
+        // Apply transform to move to correct image
+        images.style.transform = 'translateX(' + transformValue + '%)'; // Move images container horizontally
+    }
+</script> <!-- Closes JavaScript section -->
+
+</body> <!-- Closes the body section -->
+</html> <!-- Closes the HTML document -->

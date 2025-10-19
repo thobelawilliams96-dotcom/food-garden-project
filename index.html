@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>TECHNOFOODS</title> <!-- Set the title of the webpage -->
+    <link rel="stylesheet" href="style.css">  <!-- Link to external CSS stylesheet -->
+
+</head>
+<body>
+    <!-- Main container div -->
+    <div class="main">
+        <!-- Navigation bar section -->
+        <div class="navbar">
+            <!-- Logo section -->
+            <div class="icon">
+                <!-- Website logo text -->
+                <h2 class="logo">TECHNOFOODS</h2>   
+            </div>
+            <!-- Menu navigation section -->
+            <div class="menu">
+                <!-- Unordered list for menu items -->
+                <ul class="ul">
+                    <!-- Menu items array for looping -->
+                    <script>
+                        // menu items data for looping
+                        const menuItems = [
+                            { href: "index.html", text: "HOME" },
+                            { href: "about.html", text: "ABOUT" },
+                            { href: "apply.html", text: "APPLY TO VOLUNTEER" },
+                            { href: "register.html", text: "REGISTER COMMUNITY" },
+                            { href: "log.html", text: "LOGIN" },
+                            { href: "donate.html", text: "DONATE" },
+                            { href: "gallery.html", text: "GALLERY" },
+                            { href: "contact.html", text: "CONTACT US" }
+                        ];
+                        
+                        // Loop through menu items and generate HTML
+                        menuItems.forEach(item => {
+                            document.write(`<li><a href="${item.href}">${item.text}</a></li>`);
+                        });
+                    </script>
+                </ul>
+
+            </div>
+            
+            <!-- Center content wrapper -->
+            <div class="center-wrapper">
+            <!-- Main information section -->
+            <div class="info">
+                <!-- Main heading -->
+                <h1>Welcome to TechnoFoods</h1>
+                <!-- Paragraph with description -->
+                <p class="para">Committing to the war against food insecurity.<br><span>We Feed The Nation.</span></p>
+            </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- keyboard navigation -->
+    <script>
+        // event listener for keyboard input
+        document.addEventListener("keydown", function(event) {
+            // Switch statement to handle menu options
+            switch(event.key) {
+                case "Home":
+                    // Navigate to home page when Home key is pressed
+                    window.location.href = "index.html";
+                    break;
+                case "Escape":
+                    // functionality for Escape key if needed
+                    console.log("Escape key pressed");
+                    break;
+                default:
+                    // Handle other keys or do nothing
+                    break;
+            }
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html> <!-- Declares the document type and version of HTML -->
+<html lang="en"> <!-- Opens the HTML document with English language setting -->
+<head> <!-- Begins the head section containing metadata -->
+    <meta charset="UTF-8"> <!-- Sets character encoding to UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Sets viewport for responsive design -->
+    <title>Donation Page</title> <!-- Sets the page title that appears in browser tab -->
+    <style> 
+        body { /* Styles the entire page body */
+            font-family: Arial, sans-serif; /* Sets font family for text */
+            margin: 20px; /* Adds margin around body */
+            padding: 20px; /* Adds padding inside body */
+            background-color: #086210; /* Sets green background color */
+        }
+        h1 { /* Styles h1 headings */
+            color: #333; /* Sets dark gray text color */
+        }
+        form { /* Styles all form elements */
+            background: #fff; /* Sets white background */
+            padding: 20px; /* Adds padding inside form */
+            border-radius: 5px; /* Rounds form corners */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adds subtle shadow effect */
+        }
+        input, select, button { /* Styles input, select, and button elements */
+            margin: 10px 0; /* Adds vertical margin */
+            padding: 10px; /* Adds internal padding */
+            width: 100%; /* Sets full width of parent container */
+            border: 1px solid #ccc; /* Adds light gray border */
+            border-radius: 5px; /* Rounds element corners */
+        }
+        button { /* Styles all buttons */
+            background-color: #28a745; /* Sets green background color */
+            color: white; /* Sets white text color */
+            border: none; /* Removes default border */
+            cursor: pointer; /* Changes cursor to pointer on hover */
+        }
+        button:hover { /* Styles buttons on hover state */
+            background-color: #218838; /* Changes to darker green on hover */
+        }
+        .thank-you { /* Styles thank you message container */
+            display: none; /* Hides element by default */
+            margin-top: 20px; /* Adds top margin when displayed */
+            padding: 10px; /* Adds internal padding */
+            background-color: #d4edda; /* Sets light green background */
+            color: #155724; /* Sets dark green text color */
+            border: 1px solid #c3e6cb; /* Adds light green border */
+            border-radius: 5px; /* Rounds corners */
+        }
+    </style> <!-- Closes the internal CSS styling section -->
+</head> <!-- Closes the head section -->
+<body> <!-- Opens the body section containing visible content -->
+
+<h1>Donate Items</h1> <!-- Main page heading -->
+<form id="donationForm"> <!-- Creates donation form with ID for JavaScript -->
+    <label for="registrationNumber">Receiver Registration Number:</label> <!-- Label for registration number input -->
+    <input type="text" id="registrationNumber" required> <!-- Text input for registration number with required validation -->
+
+    <label for="donationType">What are you donating?</label> <!-- Label for donation type dropdown -->
+    <select id="donationType" required> <!-- Dropdown for donation types with required validation -->
+        <option value="">Select an option</option> <!-- Default empty option -->
+        <script> <!-- Opens JavaScript section for dynamic options -->
+            // Define donation types array for looping
+            const donationTypes = [
+                "Surplus food",
+                "Water",
+                "Seeds", 
+                "Tools",
+                "Fertiliser"
+            ];
+            
+            // Loop through donation types and generate options
+            donationTypes.forEach(type => {
+                document.write(`<option value="${type}">${type}</option>`);
+            });
+        </script> <!-- Closes JavaScript section -->
+    </select> <!-- Closes donation type dropdown -->
+
+    <label for="quantity">Quantity (if applicable):</label> <!-- Label for quantity input -->
+    <input type="number" id="quantity" min="1"> <!-- Number input for quantity with minimum value -->
+
+    <button type="submit">Submit Donation</button> <!-- Submit button for the form -->
+</form> <!-- Closes the donation form -->
+
+<div class="thank-you" id="thankYouMessage"> <!-- Hidden div for thank you message -->
+    Thank you for your donation! Please drop off your items at the receiver's nearest post office within 7 days of the donation date. <!-- Success message with instructions -->
+</div> <!-- Closes thank you message div -->
+
+<button onclick="location.href='index.html'" style="margin-top: 20px;">Return Home</button> <!-- Button to navigate back to home page -->
+
+<script> <!-- Opens JavaScript section -->
+    document.getElementById('donationForm').addEventListener('submit', function(event) { // Adds submit event listener to donation form
+        event.preventDefault(); // Prevents the default form submission behavior
+        
+        // Get form values
+        const regNumber = document.getElementById('registrationNumber').value; // Gets registration number value
+        const donationType = document.getElementById('donationType').value; // Gets donation type value
+        const quantity = document.getElementById('quantity').value; // Gets quantity value
+        
+        // Use switch statement to handle different donation types
+        switch(donationType) {
+            case "Surplus food":
+                console.log("Processing food donation"); // Log food donation processing
+                break;
+            case "Water":
+                console.log("Processing water donation"); // Log water donation processing
+                break;
+            case "Seeds":
+                console.log("Processing seeds donation"); // Log seeds donation processing
+                break;
+            case "Tools":
+                console.log("Processing tools donation"); // Log tools donation processing
+                break;
+            case "Fertiliser":
+                console.log("Processing fertiliser donation"); // Log fertiliser donation processing
+                break;
+            default:
+                console.log("Unknown donation type"); // Log unknown donation type
+                break;
+        }
+        
+        document.getElementById('thankYouMessage').style.display = 'block'; // Shows the thank you message
+    });
+</script> <!-- Closes JavaScript section -->
+
+</body> <!-- Closes the body section -->
+</html> <!-- Closes the HTML document -->

@@ -1,0 +1,60 @@
+<!DOCTYPE html> <!-- Declares the document type and version of HTML -->
+<html lang="en"> <!-- Opens the HTML document with English language setting -->
+<head> <!-- Begins the head section containing metadata -->
+  <meta charset="UTF-8"> <!-- Sets character encoding to UTF-8 -->
+  <title>Apply to Volunteer - TechnoFoods</title> <!-- Sets the page title that appears in browser tab -->
+  <link rel="stylesheet" href="style.css"> <!-- Links external CSS stylesheet -->
+  <style>
+    .return-button { /* Styles the return button container */
+      margin-top: 20px; /* Adds top margin for spacing */
+      text-align: center; /* Centers the button horizontally */
+    }
+    body{ /* Styles the entire page body */
+      display: flex; /* Uses flexbox for layout */
+      justify-content: center; /* Centers content horizontally */
+      align-items: center; /* Centers content vertically */
+      min-height: 100vh; /* Sets minimum height to full viewport height */
+      margin: 0; /* Removes default body margin */
+      background-color: rgb(8, 130, 3); /* Sets green background color */
+    }
+  </style> <!-- Closes the internal CSS styling section -->
+</head> <!-- Closes the head section -->
+<body> <!-- Opens the body section containing visible content -->
+  <div class="form-container"> <!-- Main container for the form -->
+    <h2>VOLUNTEERING APPLICATION</h2> <!-- Main form heading -->
+    <form id="volunteerForm" onsubmit="handleSubmit(event)"> <!-- Creates volunteer form with onsubmit event handler -->
+      <label for="fullName">FULL NAME:</label> <!-- Label for full name input -->
+      <input type="text" id="fullName" name="fullName" required> <!-- Text input for full name with required validation -->
+
+      <label for="phone">PHONE NUMBER:</label> <!-- Label for phone number input -->
+      <input type="tel" id="phone" name="phone" required> <!-- Telephone input with required validation -->
+
+      <label for="email">E-MAIL:</label> <!-- Label for email input -->
+      <input type="email" id="email" name="email" required> <!-- Email input with email validation and required attribute -->
+
+      <label for="days">AVAILABILITY:</label> <!-- Label for availability textarea -->
+      <textarea id="days" name="days" rows="3" required></textarea> <!-- Textarea for availability with required validation -->
+
+      <button type="submit">SUBMIT</button> <!-- Submit button for the form -->
+    </form> <!-- Closes the volunteer form -->
+
+    <div id="thankYouMessage" style="display:none;"> <!-- Hidden div for thank you message -->
+      Thank you for volunteering! We'll be in touch soon. <br><span>KEEP YOUR FINGERS GREEN</span> <!-- Success message with slogan -->
+    </div> <!-- Closes thank you message div -->
+
+    <div class="return-button"> <!-- Container for return to home button -->
+      <a href="index.html"> <!-- Link to home page -->
+        <button>Return to Home</button> <!-- Button to navigate back to home page -->
+      </a> <!-- Closes anchor tag -->
+    </div> <!-- Closes return button container -->
+  </div> <!-- Closes form container -->
+
+  <script> <!-- Opens JavaScript section -->
+    function handleSubmit(event) { // Defines form submission handler function
+      event.preventDefault(); // Prevents the default form submission behavior
+      document.getElementById("volunteerForm").style.display = "none"; // Hides the form after submission
+      document.getElementById("thankYouMessage").style.display = "block"; // Shows the thank you message
+    }
+  </script> <!-- Closes JavaScript section -->
+</body> <!-- Closes the body section -->
+</html> <!-- Closes the HTML document -->
